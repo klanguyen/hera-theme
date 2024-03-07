@@ -28,3 +28,4 @@ function catalog_course_catalog_course_block_init() {
 	register_block_type( __DIR__ . '/build/blocks/catalog-course' );
 }
 add_action( 'init', 'catalog_course_catalog_course_block_init' );
+include "patterns.php";
