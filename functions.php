@@ -93,4 +93,25 @@ function understrap_child_customize_controls_js() {
 }
 add_action( 'customize_controls_enqueue_scripts', 'understrap_child_customize_controls_js' );
 
+/**
+ * Filter the excerpt length to 50 words.
+ *
+ * @param int $length Excerpt length.
+ * @return int (Maybe) modified excerpt length.
+ */
+function hera_excerpt_length( $length ) {
+    if ( is_admin() ) {
+        return $length;
+    }
+    return 40;
+}
+add_filter( 'excerpt_length', 'hera_excerpt_length', 999 );
+
+// Get the excerpt without "Read more" link
+function custom_excerpt_without_read_more( $excerpt ) {
+    $excerpt = preg_replace( '/<a[^>]+>(.*)<\/a>/', '', $excerpt );
+    return $excerpt;
+}
+add_filter( 'get_the_excerpt', 'custom_excerpt_without_read_more' );
+
 include 'blocks/custom-blocks.php';

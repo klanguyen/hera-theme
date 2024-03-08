@@ -6,7 +6,68 @@
  */
 
 .wp-block-hera-catalog-course {
-	background-color: #21759b;
-	color: #fff;
+	color: #000;
 	padding: 2px;
+	&.catalog-course {
+		.card-body {
+			&.understrap-read-more-link {
+				display: none !important;
+			}
+		}
+	}
+
+	.course-institution {
+		height: 300px;
+		&.alverno {
+			background: url("../../../../images/alverno.png") no-repeat;
+		}
+		&.bryantstratton {
+			background: url("../../../../images/bryantstratton.png") no-repeat;
+		}
+		&.carroll {
+			background: url("../../../../images/carroll.png") no-repeat;
+		}
+		&.carthage {
+			background: url("../../../../images/carthage.jpeg") no-repeat;
+		}
+		&.concordia {
+			background: url("../../../../images/concordia.png") no-repeat;
+		}
+		&.gateway {
+			background: url("../../../../images/gateway.jpeg") no-repeat;
+		}
+		&.herzing {
+			background: url("../../../../images/herzing.jpeg") no-repeat;
+		}
+		&.marquette {
+			background: url("../../../../images/marquette.png") no-repeat;
+		}
+		&.matc {
+			background: url("../../../../images/matc.png") no-repeat;
+		}
+		&.miad {
+			background: url("../../../../images/miad.jpeg") no-repeat;
+		}
+		&.msoe {
+			background: url("../../../../images/msoe.png") no-repeat;
+		}
+		&.mtmary {
+			background: url("../../../../images/mtmary.png") no-repeat;
+		}
+		&.uwm {
+			background: url("../../../../images/uwm.png") no-repeat;
+		}
+		&.uwp {
+			background: url("../../../../images/uwp.png") no-repeat;
+		}
+		&.uww {
+			background: url("../../../../images/uww.png") no-repeat;
+		}
+		&.wctc {
+			background: url("../../../../images/wctc.png") no-repeat;
+		}
+		&.wlc {
+			background: url("../../../../images/wlc.png") no-repeat;
+		}
+	}
 }
