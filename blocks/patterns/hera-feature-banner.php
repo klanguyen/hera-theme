@@ -34,8 +34,8 @@
 			<!-- /wp:column -->
 
 			<!-- wp:column -->
-			<div class="wp-block-column"><!-- wp:image {"id":579,"width":"371px","height":"auto","sizeSlug":"full","linkDestination":"none"} -->
-				<figure class="wp-block-image size-full is-resized"><img src="http://localhost/wp-content/uploads/2022/01/characters-for-book-1.jpg" alt="" class="wp-image-579" style="width:371px;height:auto"/></figure>
+			<div class="wp-block-column"><!-- wp:image {"id":1320,"width":"473px","height":"auto","sizeSlug":"full","linkDestination":"none"} -->
+				<figure class="wp-block-image size-full is-resized"><img src="http://localhost/wp-content/uploads/2024/03/School.png" alt="" class="wp-image-1320" style="width:473px;height:auto"/></figure>
 				<!-- /wp:image --></div>
 			<!-- /wp:column --></div>
 		<!-- /wp:columns --></div>
