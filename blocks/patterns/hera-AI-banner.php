@@ -36,7 +36,7 @@
 			<!-- /wp:spacer -->
 
 			<!-- wp:image {"id":1380,"sizeSlug":"full","linkDestination":"none"} -->
-			<figure class="wp-block-image size-full"><img src="http://localhost/wp-content/uploads/2024/03/AI.png" alt="" class="wp-image-1380"/></figure>
+			<figure class="wp-block-image size-full"><img src="https://place-hold.it/200" alt="" class="wp-image-1380"/></figure>
 			<!-- /wp:image --></div>
 		<!-- /wp:column --></div>
 	<!-- /wp:columns --></div>

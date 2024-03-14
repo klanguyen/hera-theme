@@ -39,7 +39,7 @@
 				<!-- /wp:spacer -->
 
 				<!-- wp:image {"id":1320,"width":"473px","height":"auto","sizeSlug":"full","linkDestination":"none"} -->
-				<figure class="wp-block-image size-full is-resized"><img src="http://localhost/wp-content/uploads/2024/03/School.png" alt="" class="wp-image-1320" style="width:473px;height:auto"/></figure>
+				<figure class="wp-block-image size-full is-resized"><img src="https://place-hold.it/200" alt="" class="wp-image-1320" style="width:473px;height:auto"/></figure>
 				<!-- /wp:image --></div>
 			<!-- /wp:column --></div>
 		<!-- /wp:columns --></div>
