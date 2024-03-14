@@ -1,0 +1,55 @@
+.img-fluid{
+  height: auto;
+  width: 40%;
+}
+
+
+.navbar {
+  border-bottom: 5px solid transparent;
+  border-image: linear-gradient( to right, #9BDBF3, #A1C962) 1;
+  width:100%;
+}
+
+.navbar-toggler:focus{
+  box-shadow: none;
+}
+
+.bg-primary {
+  --bs-bg-opacity: 0;
+  background-color: #fff;
+  color: #000;
+
+}
+
+.hera-goals{
+  text-align: center;
+}
+
+.goals-students{
+  background-color: #9BDBF3;
+}
+
+.goals-program{
+  background-color: #A1C962;
+}
+
+
+.goals-employers{
+  background-color: #EFCA60;
+}
+
+
+.gs_logo_single{
+  border: 5px solid transparent;
+  border-image: linear-gradient( to right, #9BDBF3, #A1C962) 1;
+  padding: 5%;
+  width:180px;
+
+
+}
+
+
+
+
+
+
