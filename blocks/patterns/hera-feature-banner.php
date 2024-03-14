@@ -8,13 +8,13 @@
  * https://developer.wordpress.org/themes/features/block-patterns/#registering-block-patterns
  */
 ?>
-<!-- wp:group {"layout":{"type":"constrained"},"metadata":{"name":"HERA Event Banner"}} -->
-<div class="wp-block-group"><!-- wp:group {"style":{"color":{"background":"#a2c9637d"}},"layout":{"type":"constrained"},"metadata":{"name":"Hera Event Banner"}} -->
-	<div class="wp-block-group has-background" style="background-color:#a2c9637d"><!-- wp:columns -->
+<!-- wp:group {"className":"hera-banner-pattern","layout":{"type":"constrained"},"metadata":{"name":"HERA Event Banner"}} -->
+<div class="wp-block-group hera-banner-pattern"><!-- wp:group {"style":{"color":{"background":"#a2c9637d"}},"className":"p-5","layout":{"type":"constrained"},"metadata":{"name":"Hera Event Banner"}} -->
+	<div class="wp-block-group p-5 has-background" style="background-color:#a2c9637d"><!-- wp:columns -->
 		<div class="wp-block-columns"><!-- wp:column {"width":""} -->
 			<div class="wp-block-column"><!-- wp:buttons -->
-				<div class="wp-block-buttons"><!-- wp:button {"backgroundColor":"white","style":{"border":{"radius":"3px"},"color":{"text":"#000000"},"elements":{"link":{"color":{"text":"#000000"}}}},"className":"is-style-fill","fontSize":"small"} -->
-					<div class="wp-block-button has-custom-font-size is-style-fill has-small-font-size"><a class="wp-block-button__link has-white-background-color has-text-color has-background has-link-color wp-element-button" style="border-radius:3px;color:#000000">Upcoming Event</a></div>
+				<div class="wp-block-buttons"><!-- wp:button {"backgroundColor":"white","style":{"border":{"radius":"3px"},"color":{"text":"#000000"},"elements":{"link":{"color":{"text":"#000000"}}}},"className":"is-style-fill pb-2","fontSize":"small"} -->
+					<div class="wp-block-button has-custom-font-size is-style-fill pb-2 has-small-font-size"><a class="wp-block-button__link has-white-background-color has-text-color has-background has-link-color wp-element-button" style="border-radius:3px;color:#000000">Upcoming Event</a></div>
 					<!-- /wp:button --></div>
 				<!-- /wp:buttons -->
 
@@ -34,7 +34,11 @@
 			<!-- /wp:column -->
 
 			<!-- wp:column -->
-			<div class="wp-block-column"><!-- wp:image {"id":1320,"width":"473px","height":"auto","sizeSlug":"full","linkDestination":"none"} -->
+			<div class="wp-block-column"><!-- wp:spacer {"height":"60px"} -->
+				<div style="height:60px" aria-hidden="true" class="wp-block-spacer"></div>
+				<!-- /wp:spacer -->
+
+				<!-- wp:image {"id":1320,"width":"473px","height":"auto","sizeSlug":"full","linkDestination":"none"} -->
 				<figure class="wp-block-image size-full is-resized"><img src="http://localhost/wp-content/uploads/2024/03/School.png" alt="" class="wp-image-1320" style="width:473px;height:auto"/></figure>
 				<!-- /wp:image --></div>
 			<!-- /wp:column --></div>
