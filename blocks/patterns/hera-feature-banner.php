@@ -19,7 +19,7 @@
 				<!-- /wp:buttons -->
 
 				<!-- wp:heading {"level":3} -->
-				<h3 class="wp-block-heading">Title of Event</h3>
+				<h3 class="wp-block-heading pb-2">Title of Event</h3>
 				<!-- /wp:heading -->
 
 				<!-- wp:paragraph -->
@@ -27,7 +27,7 @@
 				<!-- /wp:paragraph -->
 
 				<!-- wp:buttons -->
-				<div class="wp-block-buttons"><!-- wp:button {"style":{"color":{"text":"#000000","background":"#ffffff00"},"elements":{"link":{"color":{"text":"#000000"}}}},"className":"is-style-outline"} -->
+				<div class="wp-block-buttons pt-2"><!-- wp:button {"style":{"color":{"text":"#000000","background":"#ffffff00"},"elements":{"link":{"color":{"text":"#000000"}}}},"className":"is-style-outline"} -->
 					<div class="wp-block-button is-style-outline"><a class="wp-block-button__link has-text-color has-background has-link-color wp-element-button" style="color:#000000;background-color:#ffffff00">Learn More About Event</a></div>
 					<!-- /wp:button --></div>
 				<!-- /wp:buttons --></div>
