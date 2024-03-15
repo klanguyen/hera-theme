@@ -18,29 +18,31 @@
 
 	.course-institution {
 		height: 300px;
+		background-repeat: no-repeat;
+
 		&.alverno {
-			background: url("../../../../images/alverno.png") no-repeat;
+			background: url("../../../../images/alverno.svg") no-repeat;
 		}
 		&.bryantstratton {
 			background: url("../../../../images/bryantstratton.png") no-repeat;
 		}
 		&.carroll {
-			background: url("../../../../images/carroll.png") no-repeat;
+			background: url("../../../../images/carroll.svg") no-repeat;
 		}
 		&.carthage {
-			background: url("../../../../images/carthage.jpeg") no-repeat;
+			background: url("../../../../images/carthage.svg") no-repeat;
 		}
 		&.concordia {
-			background: url("../../../../images/concordia.png") no-repeat;
+			background: url("../../../../images/concordia.svg") no-repeat;
 		}
 		&.gateway {
-			background: url("../../../../images/gateway.jpeg") no-repeat;
+			background: url("../../../../images/gateway.png") no-repeat;
 		}
 		&.herzing {
-			background: url("../../../../images/herzing.jpeg") no-repeat;
+			background: url("../../../../images/herzing.svg") no-repeat;
 		}
 		&.marquette {
-			background: url("../../../../images/marquette.png") no-repeat;
+			background: url("../../../../images/marquette.svg") no-repeat;
 		}
 		&.matc {
 			background: url("../../../../images/matc.png") no-repeat;
@@ -49,25 +51,145 @@
 			background: url("../../../../images/miad.jpeg") no-repeat;
 		}
 		&.msoe {
-			background: url("../../../../images/msoe.png") no-repeat;
+			background: url("../../../../images/msoe.svg") no-repeat;
 		}
 		&.mtmary {
 			background: url("../../../../images/mtmary.png") no-repeat;
 		}
 		&.uwm {
-			background: url("../../../../images/uwm.png") no-repeat;
+			background: url("../../../../images/uwm.svg") no-repeat;
 		}
 		&.uwp {
 			background: url("../../../../images/uwp.png") no-repeat;
 		}
 		&.uww {
-			background: url("../../../../images/uww.png") no-repeat;
+			background: url("../../../../images/uww.svg") no-repeat;
 		}
 		&.wctc {
-			background: url("../../../../images/wctc.png") no-repeat;
+			background: url("../../../../images/wctc.svg") no-repeat;
 		}
 		&.wlc {
 			background: url("../../../../images/wlc.png") no-repeat;
+		}
+	}
+
+	.course-modal-container {
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 10;
+
+		display: none;
+		justify-content: center;
+		align-items: center;
+
+		width: 100%;
+		height: 100%;
+
+		background: hsla(0, 0%, 0%, .8);
+
+		&:target{
+			display: flex;
+		}
+
+		.course-modal {
+			width: 60rem;
+			padding: 4rem 2rem;
+			border-radius: .8rem;
+
+			color: black;
+			background: white;
+			box-shadow: .4rem .4rem 2.4rem .2rem hsla(236, 50%, 50%, 0.3);
+			position: relative;
+
+			overflow: hidden;
+
+			.course-modal-headings {
+				text-align: left;
+				margin-top: 2rem;
+
+				.course-data {
+					.course-title {
+						font-size: 3.2rem;
+					}
+
+					.course-meta {
+						display: flex;
+						flex-direction: row;
+						gap: 1rem;
+						flex-grow: 1;
+
+						.meta-item {
+							padding-right: 1rem;
+							border-right: 2px solid #9f9f9f;
+							.course-institution {
+								background-size: auto 50px;
+								width: auto;
+								height: 50px;
+							}
+						}
+					}
+				}
+			}
+
+			.course-modal-details {
+				padding-bottom: 1.5rem;
+				border-bottom: 1px solid hsla(0, 0%, 0%, 0.4);
+			}
+
+			.course-modal-btn {
+				margin: 1rem 0;
+				padding: 1rem 1.6rem;
+				border: 1px solid hsla(0, 0%, 0%, 0.4);
+				border-radius: 100rem;
+
+				color: inherit;
+				background: transparent;
+				font-size: 1.2rem;
+				font-family: inherit;
+
+				transition: .2s;
+				cursor: pointer;
+
+				a {
+					color: black;
+				}
+
+				&:hover, &:focus{
+					border-color: hsla(0, 0%, 0%, 0.6);
+					transform: translateY(-.2rem);
+				}
+
+			}
+
+			.link-2 {
+				width: 4rem;
+				height: 4rem;
+
+				color: inherit;
+				font-size: 2.2rem;
+
+				position: absolute;
+				top: 2rem;
+				right: 2rem;
+
+				display: flex;
+				justify-content: center;
+				align-items: center;
+
+				transition: .2s;
+
+				&::before {
+					content: '×';
+
+					transform: translateY(-.1rem);
+				}
+
+				&:hover, &:focus {
+					border-color: hsla(0, 0%, 100%, .6);
+					transform: translateY(-.2rem);
+				}
+			}
 		}
 	}
 }
