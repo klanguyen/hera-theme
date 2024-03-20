@@ -9,14 +9,100 @@
  * @var WP_Block $block All the
  */
 
+$searchKey = $_GET['searchKey'] ?? '';
+$searchKey = strip_tags($searchKey);
+
+if(!(isset($_GET['orderby']) && isset($_GET['order']))) {
+	$_GET['orderby'] = 'post_title';
+	$_GET['order'] = 'ASC';
+}
+
 $query = new WP_Query([
 	'post_type' => 'catalog-course',
-	'orderby' => 'post_title',
-	'order' => 'asc'
+	's' => $searchKey,
+	'search_columns' => ['post_title'],
+	'meta_query' => [
+		'institution' => [
+			'key' => 'hera_course_institution',
+			'compare' => 'EXISTS'
+		],
+	],
+	'orderby' => [
+		$_GET['orderby'] => $_GET['order']
+	]
 ])
 
 ?>
 <div <?php echo get_block_wrapper_attributes(); ?>>
+	<section class="search-section">
+		<h2>Search for courses</h2>
+		<form method="get">
+			<div class="input-group mb-3">
+				<input id="searchKey" value="<?= $searchKey ?>" name="searchKey" type="text" class="form-control" placeholder="e.g. marketing" aria-label="Search keywords" aria-describedby="A search bar for course name">
+			</div>
+			<button type="submit" class="btn btn-primary btn-sm mb-3">Search</button>
+		</form>
+	</section>
+	<section class="filter-section">
+		<div class="input-group mb-3">
+			<select
+				class="form-select"
+				id="sortBy"
+				name="sortBy"
+				onchange="document.location.href='?searchKey=<?= $searchKey ?>&'+this.options[this.selectedIndex].value;"
+			>
+				<option
+					<?php
+					if( isset($_GET["orderby"]) &&
+						trim($_GET["orderby"]) == 'post_title' &&
+						isset($_GET["order"]) &&
+						trim($_GET["order"]) == 'ASC' ) {
+						echo 'selected';
+					}
+					?>
+					value="orderby=post_title&order=ASC"
+				>Course Name (A-Z)</option>
+				<option
+					<?php
+					if( isset($_GET["orderby"]) &&
+						trim($_GET["orderby"]) == 'post_title' &&
+						isset($_GET["order"]) &&
+						trim($_GET["order"]) == 'DESC' ) {
+						echo 'selected';
+					}
+					?>
+					value="orderby=post_title&order=DESC"
+				>Course Name (Z-A)</option>
+				<option
+					<?php
+					if( isset($_GET["orderby"]) &&
+						trim($_GET["orderby"]) == 'institution' &&
+						isset($_GET["order"]) &&
+						trim($_GET["order"]) == 'ASC' ) {
+						echo 'selected';
+					}
+					?>
+					value="orderby=institution&order=ASC"
+				>Institution (A-Z)</option>
+				<option
+					<?php
+					if( isset($_GET["orderby"]) &&
+						trim($_GET["orderby"]) == 'institution' &&
+						isset($_GET["order"]) &&
+						trim($_GET["order"]) == 'DESC' ) {
+						echo 'selected';
+					}
+					?>
+					value="orderby=institution&order=DESC"
+				>Institution (Z-A)</option>
+			</select>
+			<div class="btn-group">
+				<a href="#" id="list" class="btn btn-outline-info btn-sm active"><i class="fas fa-list-ul"></i></a>
+				<a href="#" id="grid" class="btn btn-outline-info btn-sm"><i class="fas fa-th-large"></i></a>
+			</div>
+		</div>
+
+	</section>
 	<?php while($query->have_posts()):
 	$query->the_post();
 	$institution = get_field_object('hera_course_institution')['value'];
