@@ -19,7 +19,7 @@ $query = new WP_Query([
 <div <?php echo get_block_wrapper_attributes(); ?>>
 	<?php while($query->have_posts()):
 	$query->the_post();
-	$insitution = get_field_object('hera_course_institution')['value'];
+	$institution = get_field_object('hera_course_institution')['value'];
 	$format = ucfirst(get_post_meta(get_the_ID(), 'hera_course_format', true));
 	$topics = get_post_meta(get_the_ID(), 'hera_course_topic', true);
 	$audience = get_post_meta(get_the_ID(), 'hera_course_audience', true);
@@ -28,7 +28,7 @@ $query = new WP_Query([
 	<div class="card catalog-course mb-3">
 		<div class="row no-gutters">
 			<div class="col-md-4">
-				<div class="course-institution <?= $insitution['value'] ?>"></div>
+				<div class="course-institution <?= $institution['value'] ?>"></div>
 			</div>
 			<div class="col-md-8">
 				<div class="card-body">
@@ -44,7 +44,9 @@ $query = new WP_Query([
 		<div class="course-modal">
 			<div class="course-modal-headings row">
 				<div class="course-data col-7">
-					<p>Offered by</p><span class="course-institution <?= $insitution['value'] ?>"></span>
+					<div class="offered-by">
+						<p>Offered by</p><span class="course-institution <?= $institution['value'] ?>"></span>
+					</div>
 					<h1 class="course-title"><?= get_the_title(); ?></h1>
 					<div class="course-meta">
 						<div class="meta-item">

@@ -113,6 +113,17 @@
 						font-size: 3.2rem;
 					}
 
+					.offered-by {
+						height: auto;
+						display: inline-flex;
+						.course-institution {
+							margin-left: 10px;
+							background-size: auto 30px;
+							width: 100px;
+							height: 30px;
+						}
+					}
+
 					.course-meta {
 						display: flex;
 						flex-direction: row;
@@ -122,11 +133,6 @@
 						.meta-item {
 							padding-right: 1rem;
 							border-right: 2px solid #9f9f9f;
-							.course-institution {
-								background-size: auto 50px;
-								width: auto;
-								height: 50px;
-							}
 						}
 					}
 				}
