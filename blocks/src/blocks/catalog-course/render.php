@@ -132,22 +132,58 @@ $query = new WP_Query([
 								<div class="col-md-6 mb-3">
 									<label for="course-topic">Topic</label>
 									<select class="form-select" name="course-topic" id="course-topic">
-										<option value="">Any</option>
+										<option
+											value=""
+											<?php
+											if( isset($_GET["course-topic"]) &&
+												trim($_GET["course-topic"]) == '') {
+												echo 'selected';
+											}
+											?>
+										>
+											Any
+										</option>
 										<?php
 										foreach($topicField['choices'] as $value => $label):
 										?>
-										<option value="<?= $value ?>"><?= $label ?></option>
+										<option
+											value="<?= $value ?>"
+											<?php
+											if( isset($_GET["course-topic"]) &&
+												trim($_GET["course-topic"]) == $value) {
+												echo 'selected';
+											}
+											?>
+										>
+											<?= $label ?>
+										</option>
 										<?php endforeach; ?>
 									</select>
 								</div>
 								<div class="col-md-6 mb-3">
 									<label for="course-institution">Institution</label>
 									<select class="form-select" name="course-institution" id="course-institution">
-										<option value="">Any</option>
+										<option
+											value=""
+											<?php
+											if( isset($_GET["course-institution"]) &&
+												trim($_GET["course-institution"]) == '') {
+												echo 'selected';
+											}
+											?>
+										>Any</option>
 										<?php
 										foreach($institutionField['choices'] as $value => $label):
 											?>
-											<option value="<?= $value ?>"><?= $label ?></option>
+											<option
+												value="<?= $value ?>"
+												<?php
+												if( isset($_GET["course-institution"]) &&
+													trim($_GET["course-institution"]) == $value) {
+													echo 'selected';
+												}
+												?>
+											><?= $label ?></option>
 										<?php endforeach; ?>
 									</select>
 								</div>
@@ -159,7 +195,18 @@ $query = new WP_Query([
 									foreach($audienceField['choices'] as $value => $label):
 										?>
 										<div>
-											<input type="checkbox" id="<?= $value ?>" value="<?= $value ?>" name="course-audience" />
+											<input
+												type="checkbox"
+												id="<?= $value ?>"
+												value="<?= $value ?>"
+												name="course-audience"
+												<?php
+												if( isset($_GET["course-audience"]) &&
+													trim($_GET["course-audience"]) == $value) {
+													echo 'checked';
+												}
+												?>
+											/>
 											<label for="<?= $value ?>"><?= $label ?></label>
 										</div>
 									<?php endforeach; ?>
@@ -170,7 +217,18 @@ $query = new WP_Query([
 									foreach($durationField['choices'] as $value => $label):
 										?>
 										<div>
-											<input type="checkbox" id="<?= $value ?>" value="<?= $value ?>" name="course-duration" />
+											<input
+												type="checkbox"
+												id="<?= $value ?>"
+												value="<?= $value ?>"
+												name="course-duration"
+												<?php
+												if( isset($_GET["course-duration"]) &&
+													trim($_GET["course-duration"]) == $value) {
+													echo 'checked';
+												}
+												?>
+											/>
 											<label for="<?= $value ?>"><?= $label ?></label>
 										</div>
 									<?php endforeach; ?>
@@ -182,7 +240,18 @@ $query = new WP_Query([
 								foreach($formatField['choices'] as $value => $label):
 									?>
 									<div class="course-format-item">
-										<input type="checkbox" id="<?= $value ?>" value="<?= $value ?>" name="course-format" />
+										<input
+											type="checkbox"
+											id="<?= $value ?>"
+											value="<?= $value ?>"
+											name="course-format"
+											<?php
+											if( isset($_GET["course-format"]) &&
+												trim($_GET["course-format"]) == $value) {
+												echo 'checked';
+											}
+											?>
+										/>
 										<div>
 										  <span class="format-option text-center">
 											  <span class="icon <?= $value ?>"></span><br/>
