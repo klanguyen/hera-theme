@@ -13,11 +13,13 @@
 $searchKey = $_GET['searchKey'] ?? '';
 $orderBy = $_GET['orderby'] ?? 'post_title';
 $dir = $_GET['order'] ?? 'ASC';
+$style = $_GET['style'] ?? 'list';
 
 // validate input
 $searchKey = strip_tags($searchKey);
 $orderBy = strip_tags($orderBy);
 $dir = strip_tags($dir);
+$style = strip_tags($style);
 
 if($_GET['orderby'] === 'title') {
 	$orderBy = 'post_title';
@@ -241,7 +243,7 @@ $query = new WP_Query([
 									?>
 									<div class="course-format-item">
 										<input
-											type="checkbox"
+											type="radio"
 											id="<?= $value ?>"
 											value="<?= $value ?>"
 											name="course-format"
@@ -285,7 +287,7 @@ $query = new WP_Query([
 						echo 'selected';
 					}
 					?>
-					value="?searchKey=<?= $searchKey ?>&orderby=title&order=ASC"
+					value="?searchKey=<?= $searchKey ?>&orderby=title&order=ASC&style=<?= $style ?>"
 				>Course Name (A-Z)</option>
 				<option
 					<?php
@@ -296,7 +298,7 @@ $query = new WP_Query([
 						echo 'selected';
 					}
 					?>
-					value="?searchKey=<?= $searchKey ?>&orderby=title&order=DESC"
+					value="?searchKey=<?= $searchKey ?>&orderby=title&order=DESC&style=<?= $style ?>"
 				>Course Name (Z-A)</option>
 				<option
 					<?php
@@ -307,7 +309,7 @@ $query = new WP_Query([
 						echo 'selected';
 					}
 					?>
-					value="?searchKey=<?= $searchKey ?>&orderby=institution&order=ASC"
+					value="?searchKey=<?= $searchKey ?>&orderby=institution&order=ASC&style=<?= $style ?>"
 				>Institution (A-Z)</option>
 				<option
 					<?php
@@ -318,12 +320,48 @@ $query = new WP_Query([
 						echo 'selected';
 					}
 					?>
-					value="?searchKey=<?= $searchKey ?>&orderby=institution&order=DESC"
+					value="?searchKey=<?= $searchKey ?>&orderby=institution&order=DESC&style=<?= $style ?>"
 				>Institution (Z-A)</option>
 			</select>
 			<div class="btn-group">
-				<a href="#" id="list" class="btn btn-outline-info btn-sm active"><i class="fas fa-list-ul"></i></a>
-				<a href="#" id="grid" class="btn btn-outline-info btn-sm"><i class="fas fa-th-large"></i></a>
+				<div class="course-style-item">
+					<input
+						type="radio"
+						id="list-style"
+						value="?searchKey=<?= $searchKey ?>&orderby=<?= $_GET['orderby'] ?? 'title' ?>&order=<?= $_GET['order'] ?? 'ASC' ?>&style=list"
+						name="course-style"
+						onclick="document.location.href=this.value"
+						<?php
+						if(isset($_GET['style']) && $_GET['style'] === 'list') {
+							echo 'checked';
+						}
+						?>
+					/>
+					<div>
+					  <span class="style-option text-center">
+						  <span class="icon list"></span>
+					  </span>
+					</div>
+				</div>
+				<div class="course-style-item">
+					<input
+						type="radio"
+						id="grid-style"
+						value="?searchKey=<?= $searchKey ?>&orderby=<?= $_GET['orderby'] ?? 'title' ?>&order=<?= $_GET['order'] ?? 'ASC' ?>&style=grid"
+						name="course-style"
+						onclick="document.location.href=this.value"
+						<?php
+						if(isset($_GET['style']) && $_GET['style'] === 'grid') {
+							echo 'checked';
+						}
+						?>
+					/>
+					<div>
+					  <span class="style-option text-center">
+						  <span class="icon grid"></span>
+					  </span>
+					</div>
+				</div>
 			</div>
 		</div>
 
@@ -336,7 +374,7 @@ $query = new WP_Query([
 	$audience = get_post_meta(get_the_ID(), 'hera_course_audience', true);
 	$duration = get_field_object('hera_course_duration')['value'];
 	?>
-	<div class="card catalog-course mb-3">
+	<div class="card catalog-course mb-3 <?= $style ?>" id="course-list">
 		<div class="row no-gutters">
 			<div class="col-md-4">
 				<div class="course-institution <?= $institution['value'] ?>"></div>

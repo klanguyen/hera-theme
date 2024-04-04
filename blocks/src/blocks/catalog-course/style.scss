@@ -46,8 +46,47 @@
 			transition: .5s ease;
 		}
 
-		input[type=checkbox]:checked ~ div {
+		input[type=radio]:checked ~ div {
 			background-color: #50bcf2;
+		}
+	}
+
+	.course-style-item {
+		position: relative;
+		width: 30px;
+		height: 30px;
+		margin: 5px;
+		float: left;
+		border: 2px solid #50bcf2;
+		box-sizing: border-box;
+		padding: 0;
+
+		input {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 180px;
+			height: 120px;
+			opacity: 0;
+			cursor: pointer;
+		}
+
+		div {
+			width: 100%;
+			height: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			line-height: 25px;
+			transition: .5s ease;
+		}
+
+		input[type=radio]:checked ~ div {
+			background-color: #50bcf2;
+		}
+
+		.icon {
+			font-size: 1em;
 		}
 	}
 
@@ -68,6 +107,12 @@
 	}
 	.icon.hybrid:before {
 		content: "\f0ac";
+	}
+	.icon.grid:before {
+		content: "\f009";
+	}
+	.icon.list:before {
+		content: "\f03a";
 	}
 
 	.course-institution {
