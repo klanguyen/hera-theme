@@ -16,6 +16,105 @@
 		}
 	}
 
+	.course-format-item {
+		position: relative;
+		width: 180px;
+		height: 120px;
+		margin: 5px;
+		float: left;
+		border: 2px solid #50bcf2;
+		box-sizing: border-box;
+		padding: 0;
+
+		input {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 180px;
+			height: 120px;
+			opacity: 0;
+			cursor: pointer;
+		}
+
+		div {
+			width: 100%;
+			height: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			line-height: 25px;
+			transition: .5s ease;
+		}
+
+		input[type=radio]:checked ~ div {
+			background-color: #50bcf2;
+		}
+	}
+
+	.course-style-item {
+		position: relative;
+		width: 30px;
+		height: 30px;
+		margin: 5px;
+		float: left;
+		border: 2px solid #50bcf2;
+		box-sizing: border-box;
+		padding: 0;
+
+		input {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 180px;
+			height: 120px;
+			opacity: 0;
+			cursor: pointer;
+		}
+
+		div {
+			width: 100%;
+			height: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			line-height: 25px;
+			transition: .5s ease;
+		}
+
+		input[type=radio]:checked ~ div {
+			background-color: #50bcf2;
+		}
+
+		.icon {
+			font-size: 1em;
+		}
+	}
+
+	.icon {
+		display: inline-block;
+		font: normal normal normal 2em/1 FontAwesome;
+		font-size: 2em;
+		text-rendering: auto;
+	}
+	.icon.synchronous:before {
+		content: "\f109";
+	}
+	.icon.inperson:before {
+		content: "\f0c0";
+	}
+	.icon.asynchronous:before {
+		content: "\f19d";
+	}
+	.icon.hybrid:before {
+		content: "\f0ac";
+	}
+	.icon.grid:before {
+		content: "\f009";
+	}
+	.icon.list:before {
+		content: "\f03a";
+	}
+
 	.course-institution {
 		height: 300px;
 		background-repeat: no-repeat;
@@ -113,6 +212,17 @@
 						font-size: 3.2rem;
 					}
 
+					.offered-by {
+						height: auto;
+						display: inline-flex;
+						.course-institution {
+							margin-left: 10px;
+							background-size: auto 30px;
+							width: 100px;
+							height: 30px;
+						}
+					}
+
 					.course-meta {
 						display: flex;
 						flex-direction: row;
@@ -122,11 +232,6 @@
 						.meta-item {
 							padding-right: 1rem;
 							border-right: 2px solid #9f9f9f;
-							.course-institution {
-								background-size: auto 50px;
-								width: auto;
-								height: 50px;
-							}
 						}
 					}
 				}
