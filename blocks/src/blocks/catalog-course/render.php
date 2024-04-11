@@ -9,11 +9,14 @@
  * @var WP_Block $block All the
  */
 
+if(isset($_POST['reset']) && $_POST['reset'] == 'reset') $_POST = array();
+
 // get search keywords
-$searchKey = $_GET['searchKey'] ?? '';
-$orderBy = $_GET['orderby'] ?? 'post_title';
-$dir = $_GET['order'] ?? 'ASC';
-$style = $_GET['style'] ?? 'list';
+$searchKey = $_POST['searchKey'] ?? '';
+$sortBy = $_POST['sortBy'] ?? 'title-ASC';
+$orderBy = explode('-', $sortBy)[0];
+$dir = explode('-', $sortBy)[1];
+$style = $_POST['course-style'] ?? 'list';
 
 // validate input
 $searchKey = strip_tags($searchKey);
@@ -21,7 +24,7 @@ $orderBy = strip_tags($orderBy);
 $dir = strip_tags($dir);
 $style = strip_tags($style);
 
-if($_GET['orderby'] === 'title') {
+if($orderBy === 'title') {
 	$orderBy = 'post_title';
 }
 
@@ -33,11 +36,11 @@ $audienceField = get_field_object('field_65e108b82dd92');
 $durationField = get_field_object('field_65e108f62dd94');
 
 // get filter inputs
-$topicInput = $_GET['course-topic'] ?? '';
-$institutionInput = $_GET['course-institution'] ?? '';
-$audienceInput = $_GET['course-audience'] ?? '';
-$durationInput = $_GET['course-duration'] ?? '';
-$formatInput = $_GET['course-format'] ?? '';
+$topicInput = $_POST['course-topic'] ?? '';
+$institutionInput = $_POST['course-institution'] ?? '';
+$audienceInput = $_POST['course-audience'] ?? '';
+$durationInput = $_POST['course-duration'] ?? '';
+$formatInput = $_POST['course-format'] ?? '';
 
 if($topicInput === '') {
 	$topicMeta = '';
@@ -115,7 +118,7 @@ $query = new WP_Query([
 <div <?php echo get_block_wrapper_attributes(); ?>>
 	<section class="search-section">
 		<h2>Search for courses</h2>
-		<form method="get">
+		<form id="search-tools" method="post">
 			<div class="input-group mb-3">
 				<input id="searchKey" value="<?= $searchKey ?>" name="searchKey" type="text" class="form-control" placeholder="e.g. marketing" aria-label="Search keywords" aria-describedby="A search bar for course name">
 			</div>
@@ -137,8 +140,8 @@ $query = new WP_Query([
 										<option
 											value=""
 											<?php
-											if( isset($_GET["course-topic"]) &&
-												trim($_GET["course-topic"]) == '') {
+											if( isset($_POST["course-topic"]) &&
+												trim($_POST["course-topic"]) == '') {
 												echo 'selected';
 											}
 											?>
@@ -151,8 +154,8 @@ $query = new WP_Query([
 										<option
 											value="<?= $value ?>"
 											<?php
-											if( isset($_GET["course-topic"]) &&
-												trim($_GET["course-topic"]) == $value) {
+											if( isset($_POST["course-topic"]) &&
+												trim($_POST["course-topic"]) == $value) {
 												echo 'selected';
 											}
 											?>
@@ -168,8 +171,8 @@ $query = new WP_Query([
 										<option
 											value=""
 											<?php
-											if( isset($_GET["course-institution"]) &&
-												trim($_GET["course-institution"]) == '') {
+											if( isset($_POST["course-institution"]) &&
+												trim($_POST["course-institution"]) == '') {
 												echo 'selected';
 											}
 											?>
@@ -180,8 +183,8 @@ $query = new WP_Query([
 											<option
 												value="<?= $value ?>"
 												<?php
-												if( isset($_GET["course-institution"]) &&
-													trim($_GET["course-institution"]) == $value) {
+												if( isset($_POST["course-institution"]) &&
+													trim($_POST["course-institution"]) == $value) {
 													echo 'selected';
 												}
 												?>
@@ -203,8 +206,8 @@ $query = new WP_Query([
 												value="<?= $value ?>"
 												name="course-audience"
 												<?php
-												if( isset($_GET["course-audience"]) &&
-													trim($_GET["course-audience"]) == $value) {
+												if( isset($_POST["course-audience"]) &&
+													trim($_POST["course-audience"]) == $value) {
 													echo 'checked';
 												}
 												?>
@@ -225,8 +228,8 @@ $query = new WP_Query([
 												value="<?= $value ?>"
 												name="course-duration"
 												<?php
-												if( isset($_GET["course-duration"]) &&
-													trim($_GET["course-duration"]) == $value) {
+												if( isset($_POST["course-duration"]) &&
+													trim($_POST["course-duration"]) == $value) {
 													echo 'checked';
 												}
 												?>
@@ -248,8 +251,8 @@ $query = new WP_Query([
 											value="<?= $value ?>"
 											name="course-format"
 											<?php
-											if( isset($_GET["course-format"]) &&
-												trim($_GET["course-format"]) == $value) {
+											if( isset($_POST["course-format"]) &&
+												trim($_POST["course-format"]) == $value) {
 												echo 'checked';
 											}
 											?>
@@ -267,104 +270,98 @@ $query = new WP_Query([
 					</div>
 				</div>
 			</div>
-			<button type="submit" class="btn btn-primary btn-sm mb-3">Search</button>
-		</form>
-	</section>
-	<section class="filter-section">
-		<div class="input-group mb-3">
-			<select
-				class="form-select"
-				id="sortBy"
-				name="sortBy"
-				onchange="document.location.href=this.options[this.selectedIndex].value;"
-			>
-				<option
-					<?php
-					if( isset($_GET["orderby"]) &&
-						trim($_GET["orderby"]) == 'title' &&
-						isset($_GET["order"]) &&
-						trim($_GET["order"]) == 'ASC' ) {
-						echo 'selected';
-					}
-					?>
-					value="?searchKey=<?= $searchKey ?>&orderby=title&order=ASC&style=<?= $style ?>"
-				>Course Name (A-Z)</option>
-				<option
-					<?php
-					if( isset($_GET["orderby"]) &&
-						trim($_GET["orderby"]) == 'title' &&
-						isset($_GET["order"]) &&
-						trim($_GET["order"]) == 'DESC' ) {
-						echo 'selected';
-					}
-					?>
-					value="?searchKey=<?= $searchKey ?>&orderby=title&order=DESC&style=<?= $style ?>"
-				>Course Name (Z-A)</option>
-				<option
-					<?php
-					if( isset($_GET["orderby"]) &&
-						trim($_GET["orderby"]) == 'institution' &&
-						isset($_GET["order"]) &&
-						trim($_GET["order"]) == 'ASC' ) {
-						echo 'selected';
-					}
-					?>
-					value="?searchKey=<?= $searchKey ?>&orderby=institution&order=ASC&style=<?= $style ?>"
-				>Institution (A-Z)</option>
-				<option
-					<?php
-					if( isset($_GET["orderby"]) &&
-						trim($_GET["orderby"]) == 'institution' &&
-						isset($_GET["order"]) &&
-						trim($_GET["order"]) == 'DESC' ) {
-						echo 'selected';
-					}
-					?>
-					value="?searchKey=<?= $searchKey ?>&orderby=institution&order=DESC&style=<?= $style ?>"
-				>Institution (Z-A)</option>
-			</select>
-			<div class="btn-group">
-				<div class="course-style-item">
-					<input
-						type="radio"
-						id="list-style"
-						value="?searchKey=<?= $searchKey ?>&orderby=<?= $_GET['orderby'] ?? 'title' ?>&order=<?= $_GET['order'] ?? 'ASC' ?>&style=list"
-						name="course-style"
-						onclick="document.location.href=this.value"
+			<button type="submit" class="btn btn-primary mb-3 mr-3">Search</button>
+			<button
+				name="reset" value="reset"
+				class="btn btn-outline-secondary"
+			>Reset</button>
+			<div class="input-group mb-3">
+				<select
+					class="form-select"
+					id="sortBy"
+					name="sortBy"
+					onchange="this.form.submit()"
+				>
+
+					<option
 						<?php
-						if(isset($_GET['style']) && $_GET['style'] === 'list') {
-							echo 'checked';
+						if( isset($_POST["sortBy"]) &&
+							trim($_POST["sortBy"]) == 'title-ASC') {
+							echo 'selected';
 						}
 						?>
-					/>
-					<div>
+						value="title-ASC"
+					>Course Name (A-Z)</option>
+					<option
+						<?php
+						if( isset($_POST["sortBy"]) &&
+							trim($_POST["sortBy"]) == 'title-DESC') {
+							echo 'selected';
+						}
+						?>
+						value="title-DESC"
+					>Course Name (Z-A)</option>
+					<option
+						<?php
+						if( isset($_POST["sortBy"]) &&
+							trim($_POST["sortBy"]) == 'institution-ASC') {
+							echo 'selected';
+						}
+						?>
+						value="institution-ASC"
+					>Institution (A-Z)</option>
+					<option
+						<?php
+						if( isset($_POST["sortBy"]) &&
+							trim($_POST["sortBy"]) == 'institution-DESC') {
+							echo 'selected';
+						}
+						?>
+						value="institution-DESC"
+					>Institution (Z-A)</option>
+				</select>
+				<div class="btn-group">
+					<div class="course-style-item">
+						<input
+							type="radio"
+							id="list-style"
+							value="list"
+							name="course-style"
+							onclick="this.form.submit()"
+							<?php
+							if(isset($_POST['course-style']) && $_POST['course-style'] === 'list') {
+								echo 'checked';
+							}
+							?>
+						/>
+						<div>
 					  <span class="style-option text-center">
 						  <span class="icon list"></span>
 					  </span>
+						</div>
 					</div>
-				</div>
-				<div class="course-style-item">
-					<input
-						type="radio"
-						id="grid-style"
-						value="?searchKey=<?= $searchKey ?>&orderby=<?= $_GET['orderby'] ?? 'title' ?>&order=<?= $_GET['order'] ?? 'ASC' ?>&style=grid"
-						name="course-style"
-						onclick="document.location.href=this.value"
-						<?php
-						if(isset($_GET['style']) && $_GET['style'] === 'grid') {
-							echo 'checked';
-						}
-						?>
-					/>
-					<div>
+					<div class="course-style-item">
+						<input
+							type="radio"
+							id="grid-style"
+							value="grid"
+							name="course-style"
+							onclick="this.form.submit()"
+							<?php
+							if(isset($_POST['course-style']) && $_POST['course-style'] === 'grid') {
+								echo 'checked';
+							}
+							?>
+						/>
+						<div>
 					  <span class="style-option text-center">
 						  <span class="icon grid"></span>
 					  </span>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-
+		</form>
 	</section>
 	<?php while($query->have_posts()):
 	$query->the_post();
