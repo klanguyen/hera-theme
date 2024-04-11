@@ -9,7 +9,7 @@
  */
 ?>
 <!-- wp:group {"style":{"color":{"background":"#9bdbf3"}},"layout":{"type":"constrained"},"metadata":{"name":"HERA AI Banner"}} -->
-<div class="wp-block-group has-background p-5" style="background-color:#9bdbf3"><!-- wp:columns -->
+<div class="wp-block-group has-background p-5 alignfull" style="background-color:#9bdbf3"><!-- wp:columns -->
 	<div class="wp-block-columns"><!-- wp:column -->
 		<div class="wp-block-column"><!-- wp:heading {"level":3} -->
 			<h3 class="wp-block-heading pb-2">Earn A Badge On AI</h3>
