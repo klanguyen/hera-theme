@@ -8,8 +8,8 @@
  * https://developer.wordpress.org/themes/features/block-patterns/#registering-block-patterns
  */
 ?>
-<!-- wp:group {"style":{"color":{"background":"#9bdbf3"}},"className":"p-5","layout":{"type":"constrained"},"metadata":{"name":"HERA AI Banner"}} -->
-<div class="wp-block-group p-5 has-background" style="background-color:#9bdbf3"><!-- wp:columns -->
+<!-- wp:group {"style":{"color":{"background":"#9bdbf3"}},"className":"p-5 alignfull","layout":{"type":"constrained"},"metadata":{"name":"HERA AI Banner"}} -->
+<div class="wp-block-group p-5 alignfull has-background" style="background-color:#9bdbf3"><!-- wp:columns -->
 	<div class="wp-block-columns"><!-- wp:column {"className":"p-5"} -->
 		<div class="wp-block-column p-5"><!-- wp:heading {"level":3,"className":"pb-2"} -->
 			<h3 class="wp-block-heading pb-2">Looking to expand your knowledge of Artificial Intelligence (AI)?</h3>
