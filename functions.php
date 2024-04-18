@@ -115,3 +115,23 @@ function custom_excerpt_without_read_more( $excerpt ) {
 add_filter( 'get_the_excerpt', 'custom_excerpt_without_read_more' );
 
 include 'blocks/custom-blocks.php';
+
+
+
+
+add_action('widgets_init', 'hera_widgets_init');
+function hera_widgets_init() {
+    register_sidebar(
+        array(
+            'name'          => esc_html__( 'Search HERA', 'hera-theme' ),
+            'id'            => 'search-1',
+            'description'   => esc_html__( 'Add widgets here.', 'hera-theme' ),
+            'before_widget' => '<section id="%1$s" class="widget %2$s">',
+            'after_widget'  => '</section>',
+            'before_title'  => '<h2 class="widget-title">',
+            'after_title'   => '</h2>',
+        )
+    );
+}
+
+
