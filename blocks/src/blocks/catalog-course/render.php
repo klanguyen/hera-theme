@@ -410,7 +410,7 @@ $resultsCount = $query->found_posts;
 					</div>
 				</div>
 				<div class="<?= $style === 'list' ? 'col-md-2' : '' ?> course-actions">
-					<a href="#course-modal-<?= get_the_ID() ?>" id="modal-closed" class="btn btn-outline-secondary">Learn More</a>
+					<a href="#course-modal-<?= get_the_ID() ?>" id="modal-<?= get_the_ID() ?>-closed" class="btn btn-outline-secondary">Learn More</a>
 				</div>
 			</div>
 		</div>
@@ -454,14 +454,14 @@ $resultsCount = $query->found_posts;
 					<a target="_blank" href="<?= get_post_meta(get_the_ID(), 'hera_course_register_link', true) ?>">Register &rarr;</a>
 				</button>
 
-				<a href="#modal-closed" class="link-2"></a>
+				<a href="#modal-<?= get_the_ID() ?>-closed" class="link-2"></a>
 
 			</div>
 		</div>
 	<?php endwhile; }?>
 		<?php if( $query->max_num_pages > 1 ): ?>
 			<!--if we have more posts to load based on current query, then show button-->
-			<div class="button-wrapper">
+			<div class="button-wrapper mt-4 d-flex justify-content-center">
 				<a class="yellow-btn-secondary" id="load-more">Load more <i class="icon-angle-down"></i></a>
 			</div>
 		<?php endif; ?>
