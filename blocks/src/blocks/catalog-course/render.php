@@ -401,7 +401,9 @@ $query = new WP_Query([
 						<div class="course-meta">
 							<div class="meta-item">
 								<span class="meta-name">Topic</span>
-								<p><?= join(', ', $topics) ?></p>
+								<p>
+									<?= is_array($topics) ? join(', ', $topics) : $topics ?>
+								</p>
 							</div>
 							<div class="meta-item">
 								<span class="meta-name">Format</span>
