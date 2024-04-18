@@ -12868,6 +12868,8 @@ a.skip-link:not(:focus):not(:focus-within) {
   --third-color: #EFCA60;
   --fourth-color:#000;
   --fifth-color: #fff;
+  --sixth-color: #ececec;
+  --seventh-color: #36697C;
   --heading-font: "venice-blvd", sans-serif;
   --paragraph-font: "myriad-pro", sans-serif;
 }
@@ -12881,13 +12883,18 @@ p {
 
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   font-family: var(--heading-font);
-  font-weight: 600;
-  font-size: 2em;
+  font-weight: 700;
+  font-size: 2em !important;
+}
+
+.footer-widget {
+  text-align: left !important;
 }
 
 body, header, footer {
   background-color: var(--fifth-color);
   color: var(--fourth-color);
+  font-family: var(--paragraph-font);
 }
 
 .img-fluid {
@@ -12904,7 +12911,7 @@ body, header, footer {
   padding: 0;
 }
 
-.navbar-toggler:focus {
+.navbar-toggler:focus, .dropdown-menu {
   box-shadow: none;
 }
 
@@ -12925,6 +12932,7 @@ body .container {
 
 .goals-students {
   background-color: var(--primary-color);
+  max-width: 120%;
 }
 
 .goals-program {
@@ -12935,8 +12943,12 @@ body .container {
   background-color: var(--third-color);
 }
 
+.wp-block-columns {
+  gap: 0;
+}
+
 /* members slider */
-.gs_logo_single {
+.gs_logo_single, .carousel-slider__item {
   border: 5px solid transparent;
   -o-border-image: linear-gradient(to right, var(--primary-color), var(--secondary-color)) 1;
   border-image: linear-gradient(to right, var(--primary-color), var(--secondary-color)) 1;
@@ -12945,30 +12957,11 @@ body .container {
   border-radius: 20%;
 }
 
-.swiper-slide {
+.swiper-slide, .carousel-slider__item {
   height: auto;
   flex-shrink: revert;
   margin: 0.5%;
   padding: 0.5%;
-}
-
-.gs_logo_area {
-  border-radius: 200px;
-}
-
-/* ai block */
-.ai {
-  text-align: center;
-  padding: 5%;
-  border: 5px solid transparent;
-  -o-border-image: linear-gradient(to right, var(--primary-color), var(--secondary-color)) 1;
-  border-image: linear-gradient(to right, var(--primary-color), var(--secondary-color)) 1;
-}
-
-.wp-block-button__link {
-  background-color: var(--third-color);
-  color: var(--fourth-color);
-  border-radius: 0pxnpm;
 }
 
 /* Footer*/
@@ -12983,18 +12976,45 @@ body .container {
 .bridging-the-gap {
   background-color: var(--fifth-color);
   position: relative;
-  width: 25%;
-  bottom: 450px;
-  left: 40%;
   align-content: center;
   font-size: 2.5em;
   padding: 1%;
+  margin: 3%;
   display: flex;
   letter-spacing: 10px;
   font-weight: lighter;
   text-transform: uppercase;
 }
 
+/* mobile Device*/
+@media all and (max-width: 30em) {
+  .bridging-the-gap {
+    width: 50%;
+    font-size: 1em;
+    align-items: center;
+    align-content: center;
+  }
+  .navbar-brand {
+    width: 70%;
+  }
+  .navbar {
+    display: flex;
+  }
+  .yellow-button, .green-button, .blue-button, .yellow-button-secondary, .green-button-secondary, .blue-button-secondary {
+    display: block;
+    margin: 0.4em auto;
+    max-width: 100%;
+  }
+  .wp-block-button__width-50 {
+    width: 100% !important;
+  }
+  .search-bar-background {
+    padding: 0.5%;
+  }
+  .wp-block-search__inside-wrapper {
+    width: 100% !important;
+  }
+}
 /*about hera page*/
 .about-hera {
   font-size: 0.5em;
@@ -13015,8 +13035,133 @@ body .container {
 }
 
 .students-education {
-  background-color: #ececec;
+  background-color: var(--sixth-color);
   padding: 3%;
+}
+
+/*buttons*/
+.wp-block-button__link, .wp-block-button:where(.is-style-outline) > .wp-block-button__link {
+  border: none !important;
+  font-family: var(--heading-font);
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+}
+
+.yellow-button {
+  background-color: var(--third-color);
+  color: var(--fourth-color);
+  display: inline-block;
+  padding: 0.3em 1.2em;
+  margin: 0 0.3em 0.3em 0;
+  border-radius: 2em;
+  box-sizing: border-box;
+  border: 3px solid transparent;
+}
+
+.yellow-button:hover, .blue-button:hover, .green-button:hover {
+  background-color: var(--fifth-color);
+  border: 3px solid var(--fourth-color);
+}
+
+.blue-button {
+  background-color: var(--primary-color);
+  display: inline-block;
+  padding: 0.3em 1.2em;
+  margin: 0 0.3em 0.3em 0;
+  border-radius: 2em;
+  box-sizing: border-box;
+  border: 3px solid transparent;
+}
+
+.green-button {
+  background-color: var(--secondary-color);
+  display: inline-block;
+  padding: 0.3em 1.2em;
+  margin: 0 0.3em 0.3em 0;
+  border-radius: 2em;
+  box-sizing: border-box;
+  border: 3px solid transparent;
+}
+
+.yellow-button-secondary {
+  background-color: transparent;
+  color: var(--fourth-color);
+  display: inline-block;
+  padding: 0.3em 1.2em;
+  margin: 0 0.3em 0.3em 0;
+  border-radius: 2em;
+  box-sizing: border-box;
+  border: 3px solid black;
+}
+
+.yellow-button-secondary:hover {
+  background-color: var(--third-color);
+  border: 3px solid var(--fourth-color);
+}
+
+.blue-button-secondary {
+  background-color: transparent;
+  color: var(--fourth-color);
+  display: inline-block;
+  padding: 0.3em 1.2em;
+  margin: 0 0.3em 0.3em 0;
+  border-radius: 2em;
+  box-sizing: border-box;
+  border: 3px solid black;
+}
+
+.blue-button-secondary:hover {
+  background-color: var(--primary-color);
+  border: 3px solid var(--fourth-color);
+}
+
+.green-button-secondary {
+  background-color: transparent;
+  color: var(--fourth-color);
+  display: inline-block;
+  padding: 0.3em 1.2em;
+  margin: 0 0.3em 0.3em 0;
+  border-radius: 2em;
+  box-sizing: border-box;
+  border: 3px solid black;
+}
+
+.green-button-secondary:hover {
+  background-color: var(--secondary-color);
+  border: 3px solid var(--fourth-color);
+}
+
+/* Search Widget*/
+.search-bar-background {
+  background-color: var(--seventh-color);
+  padding: 1%;
+}
+
+.wp-block-search__button {
+  color: var(--fourth-color);
+  background-color: var(--third-color);
+  padding: 0.25em 1.2em;
+  margin: 0 0.3em 0.3em 0;
+  border: 1px solid var(--third-color);
+  border-radius: 2em;
+}
+
+.wp-block-search__input {
+  height: 15% !important;
+}
+
+/* Email Newsletter*/
+input[type=submit] {
+  background-color: var(--third-color);
+  color: var(--fourth-color);
+  padding: 0.6em 1.2em;
+  margin: 0 0.3em 0.3em 0.65em;
+  border: transparent;
+}
+
+input[type=email] {
+  padding: 4%;
 }
 
 .has-blue-color,
