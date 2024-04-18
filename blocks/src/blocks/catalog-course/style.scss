@@ -173,13 +173,25 @@
 
 	.catalog-course {
 		.course-institution {
-			background-size: auto 10vh;
+			background-size: auto 4.5vh;
 			width: 100%;
 			height: 10vh;
 			background-position: center center;
 
-			&.alverno {
-				background-size: auto 5vh;
+			&.carroll {
+				background-size: auto 4vh;
+			}
+			&.herzing {
+				background-size: auto 16vh;
+			}
+			&.marquette, &.matc, &.msoe {
+				background-size: auto 10vh;
+			}
+			&.uwp {
+				background-size: auto 3vh;
+			}
+			&.wctc {
+				background-size: auto 3.5vh;
 			}
 		}
 	}
@@ -255,7 +267,7 @@
 							margin-left: 10px;
 							background-size: auto 30px;
 							background-position: left;
-							width: 100px;
+							width: 200px;
 							height: 30px;
 						}
 					}
