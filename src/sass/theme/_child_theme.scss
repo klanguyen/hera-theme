@@ -24,7 +24,7 @@ p {
 
 h1, h2, h3, h4, h5, h6{
   font-family: var(--heading-font);
-  font-weight: 700;
+  font-weight: 600;
   font-size:2em !important;
 }
 
@@ -369,4 +369,20 @@ input[type="submit" ] {
 
 input[type="email"]{
   padding:4%;
+}
+
+
+/* Email Logo  */
+
+.email-logo{
+
+  background-color: var(--primary-color) !important;
+
+
+}
+
+/*  logo margin*/
+
+.logo-margin img{
+  margin-top:0 !important;
 }
