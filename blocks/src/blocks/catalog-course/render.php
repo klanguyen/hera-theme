@@ -95,6 +95,7 @@ if($formatInput === '') {
 $query = new WP_Query([
 	'post_type' => 'catalog-course',
 	's' => $searchKey,
+	'posts_per_page' => 5,
 	'search_columns' => ['post_title'],
 	'meta_query' => [
 		'institution' => [
@@ -114,6 +115,9 @@ $query = new WP_Query([
 		$orderBy => $dir
 	]
 ]);
+
+
+$resultsCount = $query->found_posts;
 ?>
 <div <?php echo get_block_wrapper_attributes(); ?>>
 	<section class="search-section">
@@ -364,7 +368,17 @@ $query = new WP_Query([
 		</form>
 	</section>
 
+	<?php
+		if($resultsCount === 0) {
+			echo '<section class="no-results">
+					<h5>No results found</h5>
+					<p>We couldn\'t find any results for "'.$searchKey.'"</p>
+				 </section>';
+		} else {
+	?>
+
 	<section class="catalog-course <?= $style ?>" id="course-list">
+		<p>Found <?= $resultsCount ?> results</p>
 	<?php while($query->have_posts()):
 	$query->the_post();
 	$institution = get_field_object('hera_course_institution')['value'];
@@ -373,6 +387,7 @@ $query = new WP_Query([
 	$audience = get_post_meta(get_the_ID(), 'hera_course_audience', true);
 	$duration = get_field_object('hera_course_duration')['value'];
 	?>
+
 		<div class="card mb-3">
 			<div class="course-item <?= $style === 'list' ? 'row no-gutters' : '' ?>">
 				<div class="<?= $style === 'list' ? 'col-md-2 flex align-items-center' : '' ?>">
@@ -420,7 +435,7 @@ $query = new WP_Query([
 						</div>
 					</div>
 					<div class="course-image col-5">
-						<img src="<?= get_the_post_thumbnail_url() ?>" alt="<?= get_the_title() ?>" />
+						<img src="<?= get_the_post_thumbnail_url() == null ? './images/no-image.jpeg' : get_the_post_thumbnail_url() ?>" alt="<?= get_the_title() ?>" />
 					</div>
 				</div>
 				<div class="course-modal-details">
@@ -434,6 +449,6 @@ $query = new WP_Query([
 
 			</div>
 		</div>
-	<?php endwhile; ?>
+	<?php endwhile; }?>
 	</section>
 </div>
