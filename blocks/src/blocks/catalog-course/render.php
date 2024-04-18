@@ -128,9 +128,9 @@ $query = new WP_Query([
 $resultsCount = $query->found_posts;
 ?>
 <div <?php echo get_block_wrapper_attributes(); ?>>
-	<section class="search-section">
+	<section class="search-section" id="search-tools-header">
 		<h2>Search for courses</h2>
-		<form id="search-tools" method="post">
+		<form id="search-tools" method="post" action="#search-tools-header">
 			<div class="input-group mb-3">
 				<input id="searchKey" value="<?= $searchKey ?>" name="searchKey" type="text" class="form-control" placeholder="e.g. marketing" aria-label="Search keywords" aria-describedby="A search bar for course name">
 			</div>
@@ -397,7 +397,7 @@ $resultsCount = $query->found_posts;
 	?>
 
 		<!--we need data-product to find all the currently loaded product ID's-->
-		<div class="card mb-3" data-course="<?= get_the_ID() ?>">
+		<div class="card mb-3" id="<?= get_the_ID() ?>-card-start" data-course="<?= get_the_ID() ?>">
 			<div class="course-item <?= $style === 'list' ? 'row no-gutters' : '' ?>">
 				<div class="<?= $style === 'list' ? 'col-md-2 flex align-items-center' : '' ?>">
 					<div class="mt-4 course-institution <?= $institution['value'] ?>"></div>
@@ -454,7 +454,7 @@ $resultsCount = $query->found_posts;
 					<a target="_blank" href="<?= get_post_meta(get_the_ID(), 'hera_course_register_link', true) ?>">Register &rarr;</a>
 				</button>
 
-				<a href="#modal-<?= get_the_ID() ?>-closed" class="link-2"></a>
+				<a href="#<?= get_the_ID()-1 ?>-card-start" class="link-2"></a>
 
 			</div>
 		</div>
