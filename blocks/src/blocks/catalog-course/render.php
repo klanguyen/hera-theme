@@ -414,7 +414,7 @@ $resultsCount = $query->found_posts;
 				</div>
 			</div>
 		</div>
-		<div class="course-modal-container" id="course-modal-<?= get_the_ID() ?>">
+		<div class="course-modal-container" data-course="<?= get_the_ID() ?>" id="course-modal-<?= get_the_ID() ?>">
 			<div class="course-modal">
 				<div class="course-modal-headings row">
 					<div class="course-data col-7">
