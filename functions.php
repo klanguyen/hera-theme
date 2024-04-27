@@ -149,4 +149,58 @@ function hera_add_login_check()
 }
 add_action('wp', 'hera_add_login_check');
 
+if ( ! wp_next_scheduled( 'hera_course_completion_check' ) ) {
+    wp_schedule_event( time(), 'hourly', 'hera_course_completion_check' );
+}
+
+function hera_set_content_type(){
+    return "text/html";
+}
+add_filter( 'wp_mail_content_type','hera_set_content_type' );
+
+add_action( 'hera_course_completion_check', 'hera_course_completion_check_exec' );
+function hera_course_completion_check_exec(){
+    $db = @mysqli_connect(
+        getenv("WORDPRESS_DB_HOST"),
+        getenv("WORDPRESS_DB_USER"),
+        getenv("WORDPRESS_DB_PASSWORD"),
+        getenv("WORDPRESS_DB_NAME"))
+    or die('Error connecting to database');
+
+    $query = "SELECT u.ID, u.user_login, u.user_email, u.display_name, c.end_time
+                FROM `wp_users` as u
+                LEFT JOIN `wp_stm_lms_user_courses` c
+                ON u.ID = c.user_id
+                WHERE c.progress_percent = 100 AND
+                c.end_time > (SELECT executed
+                FROM `wp_cron_logs`
+                WHERE info = 'Finished hera_course_completion_check'
+                ORDER BY executed DESC
+                LIMIT 1);";
+    $result = @mysqli_query($db, $query) or die('Error loading details.');
+
+    $count = mysqli_num_rows($result);
+    if($count > 0) {
+        $body = '<p>These following students completed the HERA AI Literacy Course.</p><ul>';
+
+        while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+            $body .= "<li><strong>{$row['display_name']}</strong> <i>({$row['user_email']})</i></li>";
+        }
+
+        $body .= '</ul>';
+
+        @mysqli_close($db);
+
+        $subject = "Students Have Completed HERA AI Literacy Course";
+
+        /*echo 'start';
+        add_action('wp_mail_failed', function($error){
+            var_dump($error);
+        });*/
+
+        $headers = 'From: Kayla <' . get_option('admin_email') . '>';
+        wp_mail('nnguyen1@my.wctc.edu', $subject, $body, $headers);
+    }
+}
+
 
