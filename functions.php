@@ -135,3 +135,14 @@ function hera_widgets_init() {
 }
 
 
+// redirect user to their account page when they're logged in
+function hera_add_login_check()
+{
+    if ( is_user_logged_in() && is_page(1978) ) {
+        wp_redirect('/user-account/');
+        exit;
+    }
+}
+add_action('wp', 'hera_add_login_check');
+
+

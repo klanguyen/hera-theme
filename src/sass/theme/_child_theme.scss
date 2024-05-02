@@ -1,7 +1,3 @@
-* {
-  padding: 0;
-  margin:0;
-}
 
 :root{
   --primary-color: #9BDBF3;
@@ -115,7 +111,6 @@ body .container{
 }
 .swiper-slide, .carousel-slider__item{
   height:auto;
-  flex-shrink: revert;
   margin: .5%;
   padding: .5%;
 
@@ -235,7 +230,7 @@ body .container{
 
 }
 
-.yellow-button,{
+.yellow-button {
   background-color: var(--third-color);
   color: var(--fourth-color);
   display:inline-block;
@@ -341,7 +336,7 @@ body .container{
 {
   color: var(--fourth-color);
   background-color: var(--third-color);
-  padding: 0.25em 1.2em;
+  padding: 0.3em 1.2em;
   margin: 0 0.3em 0.3em 0;
   border: 1px solid var(--third-color);
   border-radius: 2em;
@@ -349,10 +344,10 @@ body .container{
 }
 
 
-
-
 .wp-block-search__input{
-  height:15% !important;
+  padding: 1.05em 1.2em !important;
+  color:var(--fourth-color);
+
 }
 
 
@@ -386,3 +381,23 @@ input[type="email"]{
 .logo-margin img{
   margin-top:0 !important;
 }
+
+/* unnecessary paddings*/
+
+.wp-block-columns{
+  margin-bottom: 0;
+}
+
+.wrapper{
+  padding: 1% 0;
+}
+
+.wp-block-heading{
+  padding:0;
+}
+
+.wp-block-search__label .screen-reader-text{
+  color: var(--fourth-color);
+  font-weight: bold;
+}
+
