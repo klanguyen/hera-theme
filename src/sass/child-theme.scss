@@ -38,7 +38,7 @@
 //@import "assets/bootstrap5/list-group";
 //@import "assets/bootstrap5/close";
 //@import "assets/bootstrap5/toasts";
-@import "assets/bootstrap5/modal";
+//@import "assets/bootstrap5/modal";
 //@import "assets/bootstrap5/tooltip";
 //@import "assets/bootstrap5/popover";
 @import "assets/bootstrap5/carousel";
@@ -62,7 +62,7 @@
 
 // Any additional imported files //
 @import "theme/child_theme";                             // <------- Add your styles into this file
-@import "assets/understrap/theme/colors";           // <-------- This creates the necessary bootstrap color classes.
+//@import "assets/understrap/theme/colors";           // <-------- This creates the necessary bootstrap color classes.
 @import "assets/understrap/theme/blocks";           // <-------- This adds Bootstrap styles to blocks.
 @import "assets/understrap/theme/contact-form7";    // <-------- Contact Form 7 - Bootstrap 4 support
 
