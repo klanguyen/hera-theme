@@ -114,11 +114,6 @@ function custom_excerpt_without_read_more( $excerpt ) {
 }
 add_filter( 'get_the_excerpt', 'custom_excerpt_without_read_more' );
 
-function my_custom_scripts() {
-    wp_enqueue_script( 'custom-js', get_stylesheet_directory_uri() . '/js/hera-custom.js', array( 'jquery' ),'',true );
-}
-add_action( 'wp_enqueue_scripts', 'my_custom_scripts' );
-
 include 'blocks/custom-blocks.php';
 
 

@@ -10,7 +10,7 @@
  */
 
 // exclude course id's (default false)
-$excludeCourses = isset($_REQUEST['excludeCourses']) ? $_REQUEST['excludeCourses'] : false;
+$excludeCourses = $_REQUEST['excludeCourses'] ?? false;
 
 if(isset($_POST['reset']) && $_POST['reset'] == 'reset') $_POST = array();
 
@@ -96,12 +96,13 @@ if($formatInput === '') {
 }
 
 $postsPerPage = 5;
+$paged = get_query_var('paged') ?? 1;
 
 $query = new WP_Query([
 	'post_type' => 'catalog-course',
 	's' => $searchKey,
 	'posts_per_page' => $postsPerPage,
-	'paged' => 1,
+	'paged' => $paged,
 	// here is the trick, exclude current courses from query when using jQuery $.post()
 	'post__not_in' => $excludeCourses,
 	'search_columns' => ['post_title'],
@@ -459,6 +460,7 @@ $resultsCount = $query->found_posts;
 			</div>
 		</div>
 	<?php endwhile; }?>
+		<?php wp_reset_postdata(); ?>
 		<?php if( $query->max_num_pages > 1 ): ?>
 			<!--if we have more posts to load based on current query, then show button-->
 			<div class="button-wrapper mt-4 d-flex justify-content-center">
@@ -469,6 +471,5 @@ $resultsCount = $query->found_posts;
 	<script type="text/javascript">
 		/* we need this, to pass the posts per page value to external jQuery script */
 		window.postsPerPage = '<?=$postsPerPage?>';
-
 	</script>
 </div>
