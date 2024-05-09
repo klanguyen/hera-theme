@@ -12731,6 +12731,13 @@ body .container {
   .wp-block-search__inside-wrapper {
     width: 100% !important;
   }
+  input[type=submit] {
+    border-image-width: 0;
+    padding: 0.51em 1.2em;
+    margin: 0 0.3em 0.3em 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
 }
 /*about hera page*/
 .about-hera {
@@ -12789,6 +12796,10 @@ body .container {
   border-radius: 2em;
   box-sizing: border-box;
   border: 3px solid transparent;
+}
+
+.home-btn .wp-block-button__link {
+  color: black !important;
 }
 
 .green-button {
@@ -12873,8 +12884,9 @@ body .container {
 input[type=submit] {
   background-color: var(--third-color);
   color: var(--fourth-color);
-  padding: 0.59em 1.2em;
-  margin: 0 0.3em 0.3em 0.73em;
+  padding: 9px 1.2em;
+  margin: 0 0.3em 0.3em 0;
+  border-image-width: 0;
   border: transparent;
   border-bottom-right-radius: 2em;
   border-top-right-radius: 2em;
@@ -12885,7 +12897,7 @@ input[type=submit]:hover {
 }
 
 input[type=email] {
-  padding: 4%;
+  padding: 7px;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
@@ -13020,6 +13032,456 @@ input[type=email] {
 .course-meta .meta-item p {
   padding-bottom: 0;
   margin-bottom: 0;
+}
+
+#sp-ea-268.sp-easy-accordion > .sp-ea-single > .ea-header a {
+  background-color: #9BDBF3;
+}
+
+.blue-spacer {
+  background-color: #9BDBF3;
+  margin-bottom: 1.5em;
+}
+
+.green-spacer {
+  background-color: #A1C962;
+  margin-bottom: 1.5em;
+}
+
+.yellow-spacer {
+  background-color: #EFCA60;
+  margin-bottom: 1.5em;
+}
+
+.wp-block-media-text {
+  margin-top: 10px;
+}
+
+.stm_lms_courses__single::before {
+  content: "Dive into a world of knowledge and discovery as you explore our artificial intelligence course designed to inspire and empower you on your learning journey. Our featured course is curated to ignite your curiosity and passion for AI, and provide you with valuable insights and practical knowledge that you can apply in your professional development. Explore our course and embark on a transformative learning experience in AI literacy!";
+  line-height: 25px;
+}
+
+.stm_lms_courses__single__inner {
+  margin-top: 20px;
+}
+
+.stm_lms_course__image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  text-align: center;
+}
+
+.stm_lms_course__image .wp-post-image {
+  width: 50%;
+  height: 80%;
+}
+
+.stm-lms-wrapper .nav.nav-tabs > li.active a {
+  background: #9BDBF3;
+  font-weight: 700;
+}
+
+.stm-lms-wrapper .nav.nav-tabs > li a:hover {
+  background: #A1C962;
+}
+
+.masterstudy-curriculum-list__wrapper .masterstudy-curriculum-list__section {
+  background: #EFCA60;
+  padding: 10px;
+}
+
+.masterstudy-curriculum-list__section .masterstudy-curriculum-list__toggler {
+  background: #9BDBF3;
+}
+
+.stm-lms-course__sidebar .stm-lms-course-info__single:first-child {
+  display: none !important;
+}
+
+.stm_lms_courses__single--image, .stm_lms_courses__single--image__container {
+  height: 500px;
+}
+
+body .stm_lms_courses__single--image .stm_lms_courses__single--image__container {
+  height: 500px;
+}
+
+.stm_lms_courses__single--image__container .wp-post-image {
+  height: 500px;
+}
+
+/*.page-id-48 .alignfull {
+	padding: 3rem 15%;
+}*/
+.page-id-24 .btn.btn-primary, .page-id-24 .wpcf7 input.btn-primary[type=submit], .wpcf7 .page-id-24 input.btn-primary[type=submit], .page-id-24 .wp-block-hera-catalog-course .course-modal-container .course-modal .course-modal-btn {
+  background-color: var(--third-color);
+  padding: 0.3em 1.2em;
+  margin: 0 0.3em 0.3em 0;
+  border: 1px solid var(--third-color);
+  border-radius: 2em;
+}
+
+.page-id-24 .btn.btn-primary:hover, .page-id-24 .wpcf7 input.btn-primary[type=submit]:hover, .wpcf7 .page-id-24 input.btn-primary[type=submit]:hover {
+  filter: brightness(0.95);
+}
+
+.page-id-24 .btn.btn-outline-secondary, .page-id-24 .wpcf7 input.btn-outline-secondary[type=submit], .wpcf7 .page-id-24 input.btn-outline-secondary[type=submit] {
+  padding: 0.3em 1.2em;
+  margin: 0 0.3em 0.3em 0;
+  border-radius: 2em;
+  color: var(--fourth-color);
+  border: 1px solid var(--fourth-color);
+}
+
+.button-wrapper .yellow-btn-secondary {
+  padding: 0.3em 1.2em;
+  margin: 0 0.3em 0.3em 0;
+  border-radius: 2em;
+  color: var(--fourth-color);
+  border: 1px solid var(--fourth-color);
+  cursor: pointer;
+}
+
+.button-wrapper .yellow-btn-secondary:hover {
+  background-color: var(--primary-color);
+  color: var(--fourth-color);
+  border: 1px solid var(--fourth-color);
+  cursor: pointer;
+}
+
+.page-id-24 .form-control, .page-id-24 .wpcf7 .wpcf7-validation-errors, .wpcf7 .page-id-24 .wpcf7-validation-errors, .page-id-24 .wpcf7 input[type=text], .wpcf7 .page-id-24 input[type=text],
+.page-id-24 .wpcf7 input[type=search],
+.wpcf7 .page-id-24 input[type=search],
+.page-id-24 .wpcf7 input[type=url],
+.wpcf7 .page-id-24 input[type=url],
+.page-id-24 .wpcf7 input[type=tel],
+.wpcf7 .page-id-24 input[type=tel],
+.page-id-24 .wpcf7 input[type=number],
+.wpcf7 .page-id-24 input[type=number],
+.page-id-24 .wpcf7 input[type=range],
+.wpcf7 .page-id-24 input[type=range],
+.page-id-24 .wpcf7 input[type=date],
+.wpcf7 .page-id-24 input[type=date],
+.page-id-24 .wpcf7 input[type=month],
+.wpcf7 .page-id-24 input[type=month],
+.page-id-24 .wpcf7 input[type=week],
+.wpcf7 .page-id-24 input[type=week],
+.page-id-24 .wpcf7 input[type=time],
+.wpcf7 .page-id-24 input[type=time],
+.page-id-24 .wpcf7 input[type=datetime],
+.wpcf7 .page-id-24 input[type=datetime],
+.page-id-24 .wpcf7 input[type=datetime-local],
+.wpcf7 .page-id-24 input[type=datetime-local],
+.page-id-24 .wpcf7 input[type=color],
+.wpcf7 .page-id-24 input[type=color],
+.page-id-24 .wpcf7 input[type=email],
+.wpcf7 .page-id-24 input[type=email],
+.page-id-24 .wpcf7 input[type=file],
+.wpcf7 .page-id-24 input[type=file],
+.page-id-24 .wpcf7 input[type=submit],
+.wpcf7 .page-id-24 input[type=submit],
+.page-id-24 .wpcf7 select,
+.wpcf7 .page-id-24 select,
+.page-id-24 .wpcf7 textarea,
+.wpcf7 .page-id-24 textarea {
+  padding: 1.3em 1.2em;
+  border-radius: 0.375em;
+}
+
+.accordion {
+  --bs-accordion-active-color: var(--fourth-color);
+  --bs-accordion-border-color: #8cc5db;
+  --bs-accordion-btn-active-icon-color: black;
+}
+
+.wp-block-hera-catalog-course .course-format-item {
+  border-color: var(--primary-color) !important;
+  border-radius: 0.375em;
+}
+
+.wp-block-hera-catalog-course input[type=radio]:checked ~ div {
+  background-color: var(--primary-color) !important;
+}
+
+.wp-block-hera-catalog-course .course-style-item {
+  border-color: var(--primary-color) !important;
+  border-radius: 0.375em;
+}
+
+.page-id-24 .card {
+  --bs-card-border-color: rgba(0,0,0,.2);
+}
+
+.page-id-24 h1, .page-id-24 .h1, .page-id-44 h1, .page-id-44 .h1 {
+  font-size: calc(1.375rem + 1.5vw);
+}
+
+.page-id-24 h2, .page-id-24 .h2, .page-id-44 h2, .page-id-44 .h2 {
+  font-size: calc(1.325rem + 0.9vw);
+}
+
+.page-id-24 h3, .page-id-24 .h3, .page-id-44 h3, .page-id-44 .h3 {
+  font-size: calc(1.3rem + 0.6vw);
+}
+
+.page-id-24 h5, .page-id-24 .h5 {
+  font-size: 1.25em;
+}
+
+.wp-block-hera-catalog-course .course-modal-container .course-modal .course-modal-headings .course-data .course-title {
+  font-size: calc(1.3rem + 0.6vw) !important;
+}
+
+.page-id-24 .wp-block-hera-catalog-course .course-modal-container .course-modal .course-modal-btn {
+  margin-top: 1em;
+  font-size: 1.1em;
+}
+
+.page-id-42 .contact-for-more {
+  background-color: rgba(0, 0, 35, 0.1);
+  padding: 3.5em;
+  position: relative;
+}
+
+body .category-hera-connect-newsletter {
+  padding: 20px;
+}
+
+body .category-all-news {
+  padding: 20px;
+}
+
+h2.has-background, .has-background.h2 {
+  padding: 0.25em 0.375em !important;
+  font-size: 3rem;
+}
+
+.post-24 .blue-spacer {
+  margin-bottom: 1em;
+}
+
+.post-24 .wp-block-image > figure img, .post-24 figure.wp-block-image img {
+  margin-top: 0;
+}
+
+.search-section h2, .search-section .h2 {
+  font-size: 1.5em;
+}
+
+figure.wp-block-image img {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.align-full-padding {
+  padding-left: 75px;
+}
+
+/* or .goal-block-column */
+.wp-block-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.masterstudy-curriculum-list__section .masterstudy-curriculum-list__toggler {
+  background: #efca60;
+}
+
+h2.has-background, .has-background.h2 {
+  font-size: 2rem;
+}
+
+p.about.has-background {
+  margin: 0 10%;
+}
+
+body .category-all-news .wp-block-button:where(.is-style-outline) > .wp-block-button__link:not(.has-background) {
+  background-color: #9BDBF3;
+  border: 3px solid transparent !important;
+}
+
+body .category-all-news .wp-block-button:where(.is-style-outline) > .wp-block-button__link:not(.has-background):hover {
+  background-color: #fff;
+  border: 3px solid #000 !important;
+}
+
+body .category-hera-connect-newsletter .wp-block-button:where(.is-style-outline) > .wp-block-button__link:not(.has-background) {
+  background-color: #9BDBF3;
+  border: 3px solid transparent !important;
+}
+
+body .category-hera-connect-newsletter .wp-block-button:where(.is-style-outline) > .wp-block-button__link:not(.has-background):hover {
+  background-color: #fff;
+  border: 3px solid #000 !important;
+}
+
+h2.wp-block-heading.about-heading, .wp-block-heading.about-heading.h2 {
+  margin-top: 50px;
+}
+
+figure.wp-block-image figcaption {
+  margin-left: 20%;
+}
+
+p.about-paraph {
+  margin-left: 2%;
+}
+
+.masterstudy-authorization {
+  width: 500px;
+  margin: 100px auto;
+  border: 5px solid #9BDBF3;
+  padding: 50px 20px;
+  border-radius: 20px;
+}
+
+@media screen and (max-width: 780px) {
+  .masterstudy-authorization {
+    width: 400px;
+  }
+}
+.masterstudy-authorization__header {
+  justify-content: center;
+}
+
+body .masterstudy-authorization__actions .masterstudy-button, body .masterstudy-authorization__instructor-already-actions a {
+  width: 146px;
+  background: #EFCA60 !important;
+  border-radius: 50px;
+}
+
+body .masterstudy-authorization__actions .masterstudy-button .masterstudy-button__title, body .masterstudy-authorization__instructor-already-actions .masterstudy-button .masterstudy-button__title {
+  color: black !important;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.goal-item-students {
+  background-color: var(--primary-color);
+}
+
+.goal-item-institutional {
+  background-color: var(--secondary-color);
+}
+
+.goal-item-employers {
+  background-color: var(--third-color);
+}
+
+@media screen and (max-width: 780px) {
+  .footer-widget .wp-block-column {
+    margin: auto;
+    text-align: center;
+  }
+  .footer-widget .wp-block-heading {
+    text-align: center;
+  }
+  /*Mariana's footer changes */
+  img.wp-image-93, p.bridging-the-gap, .wp-block-column.is-vertically-aligned-top.is-layout-flow.wp-block-column-is-layout-flow, .wp-block-columns.row.align-items-start.is-layout-flex.wp-container-core-columns-is-layout-7.wp-block-columns-is-layout-flex {
+    display: block;
+    margin: 0 auto;
+  }
+  .has-text-align-left {
+    text-align: center;
+  }
+  #footer-full-content .row {
+    flex-direction: column-reverse;
+  }
+  .wp-block-social-links {
+    width: 100%;
+    justify-content: center;
+    gap: 50px;
+  }
+  /*Mariana's footer changes end*/
+}
+#sortBy {
+  flex: 100%;
+}
+
+#searchKey {
+  flex: 100%;
+}
+
+.archive h2:hover, .archive .h2:hover, .blog h2:hover, .blog .h2:hover {
+  color: #23527c;
+  text-decoration: underline;
+}
+
+.logged-out {
+  display: none;
+}
+
+.entry-content .logged-in {
+  width: 146px;
+  height: 43px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50px auto;
+  background: #EFCA60;
+  border-radius: 50px;
+  color: black;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.posted-on {
+  display: none;
+}
+
+.byline {
+  display: none;
+}
+
+.masterstudy-authorization {
+  max-width: 100% !important;
+}
+
+.fa-user:before {
+  color: #fff;
+}
+
+.log-in-button {
+  font-family: venice-blvd, sans-serif;
+  color: #fff;
+  width: 50px;
+}
+
+.log-out-button {
+  font-family: venice-blvd, sans-serif;
+  color: #fff;
+  width: 60px;
+}
+
+.widget .widget_nav_menu {
+  margin-top: 10px;
+  width: 50% !important;
+}
+
+@media screen and (max-width: 920px) and (min-width: 780px) {
+  .fa-lg {
+    font-size: 0.9em;
+  }
+}
+@media screen and (max-width: 400px) {
+  body .widget .widget_nav_menu {
+    margin-right: 5px;
+  }
+}
+#mc4wp-form-1 {
+  display: block;
+  text-align: center;
+}
+
+.wisconsin-quote p:first-of-type {
+  padding: 2% 2% 0 2% !important;
+}
+
+.hera-partners-images {
+  text-align: center;
 }
 
 figure.wp-block-image,

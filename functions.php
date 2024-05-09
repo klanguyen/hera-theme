@@ -137,7 +137,7 @@ function hera_widgets_init() {
 // redirect user to their account page when they're logged in
 function hera_add_login_check()
 {
-    if ( is_user_logged_in() && is_page(1260) ) {
+    if ( is_user_logged_in() && is_page(1978) ) {
         wp_redirect('/user-account/');
         exit;
     }
@@ -193,20 +193,11 @@ function hera_course_completion_check_exec(){
             var_dump($error);
         });*/
 
-        $headers = 'From: Kayla <' . get_option('admin_email') . '>';
-        wp_mail('nnguyen1@my.wctc.edu', $subject, $body, $headers);
+        $headers = 'From: HERA <' . get_option('admin_email') . '>';
+        wp_mail(get_option('admin_email'), $subject, $body, $headers);
     }
 }
 
 
-// redirect user to their account page when they're logged in
-function hera_add_login_check()
-{
-    if ( is_user_logged_in() && is_page(1978) ) {
-        wp_redirect('/user-account/');
-        exit;
-    }
-}
-add_action('wp', 'hera_add_login_check');
 
 
