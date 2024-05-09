@@ -449,3 +449,93 @@ input[type="email"]{
 
 }
 
+/****** Single course catalog page *********/
+.course-institution {
+  height: 300px;
+
+  &.alverno {
+    background: url("../images/alverno.svg") no-repeat;
+  }
+  &.bryantstratton {
+    background: url("../images/bryantstratton.png") no-repeat;
+  }
+  &.carroll {
+    background: url("../images/carroll.svg") no-repeat;
+  }
+  &.carthage {
+    background: url("../images/carthage.svg") no-repeat;
+  }
+  &.concordia {
+    background: url("../images/concordia.svg") no-repeat;
+  }
+  &.gateway {
+    background: url("../images/gateway.png") no-repeat;
+  }
+  &.herzing {
+    background: url("../images/herzing.svg") no-repeat;
+  }
+  &.marquette {
+    background: url("../images/marquette.svg") no-repeat;
+  }
+  &.matc {
+    background: url("../images/matc.png") no-repeat;
+  }
+  &.miad {
+    background: url("../images/miad.jpeg") no-repeat;
+  }
+  &.msoe {
+    background: url("../images/msoe.svg") no-repeat;
+  }
+  &.mtmary {
+    background: url("../images/mtmary.png") no-repeat;
+  }
+  &.uwm {
+    background: url("../images/uwm.svg") no-repeat;
+  }
+  &.uwp {
+    background: url("../images/uwp.png") no-repeat;
+  }
+  &.uww {
+    background: url("../images/uww.svg") no-repeat;
+  }
+  &.wctc {
+    background: url("../images/wctc.svg") no-repeat;
+  }
+  &.wlc {
+    background: url("../images/wlc.png") no-repeat;
+  }
+}
+
+.offered-by {
+  height: auto;
+  display: inline-flex;
+  .course-institution {
+    margin-left: 10px;
+    background-size: auto 30px;
+    background-position: left;
+    width: 200px;
+    height: 30px;
+  }
+}
+
+.course-meta {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 5%;
+  flex-grow: 1;
+  margin-bottom: 1em;
+
+  .meta-item {
+    width: 45%;
+    padding-right: 1rem;
+    padding-top: 10px;
+    color: #414141;
+    .meta-name {
+      font-weight: bold;
+    }
+    p {
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
+  }
+}

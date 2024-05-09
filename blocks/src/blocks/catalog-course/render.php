@@ -390,18 +390,18 @@ $resultsCount = $query->found_posts;
 		<p>Found <?= $resultsCount ?> results</p>
 	<?php while($query->have_posts()):
 	$query->the_post();
-	$institution = get_field_object('hera_course_institution')['value'];
-	$format = ucfirst(get_post_meta(get_the_ID(), 'hera_course_format', true));
-	$topics = get_post_meta(get_the_ID(), 'hera_course_topic', true);
-	$audience = get_post_meta(get_the_ID(), 'hera_course_audience', true);
-	$duration = get_field_object('hera_course_duration')['value'];
+		$institution = get_field_object('hera_course_institution') ? get_field_object('hera_course_institution')['value']['value'] : '';
+		$format = get_post_meta(get_the_ID(), 'hera_course_format', true) ? ucfirst(get_post_meta(get_the_ID(), 'hera_course_format', true)) : 'N/A';
+		$topics = get_post_meta(get_the_ID(), 'hera_course_topic', true) ?? 'N/A';
+		$audience = get_post_meta(get_the_ID(), 'hera_course_audience', true) ?? 'N/A';
+		$duration = get_field_object('hera_course_duration') ? get_field_object('hera_course_duration')['value']['label'] : 'N/A';
 	?>
 
 		<!--we need data-product to find all the currently loaded product ID's-->
 		<div class="card mb-3" id="<?= get_the_ID() ?>-card-start" data-course="<?= get_the_ID() ?>">
 			<div class="course-item <?= $style === 'list' ? 'row no-gutters' : '' ?>">
 				<div class="<?= $style === 'list' ? 'col-md-2 flex align-items-center' : '' ?>">
-					<div class="mt-4 course-institution <?= $institution['value'] ?>"></div>
+					<div class="mt-4 course-institution <?= $institution ?>"></div>
 				</div>
 				<div class="<?= $style === 'list' ? 'col-md-8' : '' ?>">
 					<div class="card-body">
@@ -420,7 +420,7 @@ $resultsCount = $query->found_posts;
 				<div class="course-modal-headings row">
 					<div class="course-data col-7">
 						<div class="offered-by">
-							<p>Offered by</p><span class="course-institution <?= $institution['value'] ?>"></span>
+							<p>Offered by</p><span class="course-institution <?= $institution ?>"></span>
 						</div>
 						<h3 class="course-title"><?= get_the_title(); ?></h3>
 						<div class="course-meta">
@@ -440,7 +440,7 @@ $resultsCount = $query->found_posts;
 							</div>
 							<div class="meta-item">
 								<span class="meta-name">Duration</span>
-								<p><?= $duration['label'] ?></p>
+								<p><?= $duration ?></p>
 							</div>
 						</div>
 					</div>
