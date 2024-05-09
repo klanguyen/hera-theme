@@ -466,7 +466,7 @@ $resultsCount = $query->found_posts;
 			<div class="button-wrapper mt-4 d-flex justify-content-center">
 				<a class="yellow-btn-secondary" id="load-more">Load More
 					<span class="loader">
-						<i class="fa-solid fa-spinner fa-spin-pulse"></i>
+						<i class="fas fa-spinner fa-spin-pulse"></i>
 					</span>
 				</a>
 			</div>

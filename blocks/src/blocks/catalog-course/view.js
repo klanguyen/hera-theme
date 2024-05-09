@@ -31,9 +31,9 @@ jQuery(function($) {
 			let $btn = $(this);
 
 			// disable button (you can add spinner to button here too)
-			document.getElementsByClassName("loader")[0].style.display = "block";
+			//document.getElementsByClassName("loader")[0].style.display = "inline-block";
+			$('.loader').css({display: 'inline-block'});
 
-			// set current courses empty array
 			let currentCourses = [];
 
 			// loop thought through all courses
@@ -75,8 +75,7 @@ jQuery(function($) {
 					// do stuff here to lazy load images etc...
 
 					// re-enable button (and stop button spinner if you have one)
-					$btn.prop('disabled', false);
-					document.getElementsByClassName("loader")[0].style.display = "none";
+					$('.loader').css({display: 'none'});
 				});
 
 		});
