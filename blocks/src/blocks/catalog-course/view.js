@@ -31,7 +31,7 @@ jQuery(function($) {
 			let $btn = $(this);
 
 			// disable button (you can add spinner to button here too)
-			$btn.prop('disabled', true);
+			document.getElementsByClassName("loader")[0].style.display = "block";
 
 			// set current courses empty array
 			let currentCourses = [];
@@ -76,7 +76,7 @@ jQuery(function($) {
 
 					// re-enable button (and stop button spinner if you have one)
 					$btn.prop('disabled', false);
-
+					document.getElementsByClassName("loader")[0].style.display = "none";
 				});
 
 		});
