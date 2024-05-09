@@ -464,7 +464,7 @@ $resultsCount = $query->found_posts;
 		<?php if( $query->max_num_pages > 1 ): ?>
 			<!--if we have more posts to load based on current query, then show button-->
 			<div class="button-wrapper mt-4 d-flex justify-content-center">
-				<a class="yellow-btn-secondary" id="load-more">Load More
+				<a class="btn btn-primary" id="load-more">Load More
 					<span class="loader">
 						<i class="fas fa-spinner fa-spin-pulse"></i>
 					</span>
